@@ -16,6 +16,7 @@ public class Student {
     @Id //mention id is the primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment
     private Long id;
+    //@Column(name = "fullname", length=255, nullable = false ) //set properties
     private String name;
     private String nic;
     private int age;

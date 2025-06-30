@@ -7,10 +7,7 @@ import com.example.demo.util.StandardResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/user")
@@ -26,7 +23,15 @@ public class StudentController {
         return new ResponseEntity<>(new StandardResponse(
                 "Data recive Success",
                 200,
-                t1.getStudentDetails(dto)
+                t1.getStudent(dto)
         ), HttpStatus.OK);
+    }
+    @GetMapping(path = "/get-details")
+    public ResponseEntity<StandardResponse> getStudentDetails(){
+        return new ResponseEntity<>(new StandardResponse(
+                "data retrive successfully",
+                200,
+                t1.getStudentDetails()
+        ),HttpStatus.OK);
     }
 }
